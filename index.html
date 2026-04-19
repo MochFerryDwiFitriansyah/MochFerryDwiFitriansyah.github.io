@@ -23,6 +23,11 @@ color:white;
 text-decoration:none;
 margin:20px;
 font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+opacity:0.8;
 }
 
 .container{
@@ -34,9 +39,9 @@ padding:40px;
 .hero{
 display:flex;
 align-items:center;
-gap:40px;
+gap:30px;
 flex-wrap:wrap;
-margin-top:30px;
+margin-top:20px;
 }
 
 .hero img{
@@ -45,7 +50,7 @@ border-radius:20px;
 }
 
 .hero-text{
-max-width:550px;
+max-width:520px;
 }
 
 .cv-button{
@@ -56,29 +61,54 @@ padding:12px 20px;
 text-decoration:none;
 border-radius:8px;
 margin-top:15px;
+transition:0.3s;
+}
+
+.cv-button:hover{
+opacity:0.85;
 }
 
 h1{
 color:#1f4e79;
+margin-bottom:10px;
 }
 
 h2{
 color:#1f4e79;
-margin-top:50px;
+margin-top:55px;
 border-bottom:2px solid #ddd;
 padding-bottom:5px;
 }
 
 .project-card{
 background:white;
-padding:20px;
+padding:28px;
 margin-top:25px;
 border-radius:15px;
 box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
-p{
-margin-bottom:10px;
+.project-card p{
+margin-bottom:14px;
+}
+
+.skill-badge{
+display:inline-block;
+background:#1f4e79;
+color:white;
+padding:10px 16px;
+border-radius:20px;
+margin:8px 8px 0 0;
+font-size:14px;
+}
+
+footer{
+margin-top:60px;
+text-align:center;
+font-size:14px;
+color:#666;
+padding:25px;
+border-top:1px solid #ddd;
 }
 </style>
 
@@ -105,7 +135,8 @@ margin-bottom:10px;
 <p>Water Resources Engineering Student</p>
 
 <p>
-Mahasiswa D4 Teknik Sipil - Teknologi Rekayasa Konstruksi Bangunan Air - Institut Teknologi Sepuluh Nopember, Surabaya
+Mahasiswa D4 Teknik Sipil - Teknologi Rekayasa Konstruksi Bangunan Air -
+Institut Teknologi Sepuluh Nopember
 </p>
 
 <a href="CV ATS Ferry ffixx.pdf" class="cv-button">
@@ -120,7 +151,8 @@ Download CV
 <h2 id="about">About Me</h2>
 
 <p>
-Mahasiswa semester akhir dengan fokus pada perencanaan sumber daya air dan analisis hidrolika.
+Mahasiswa semester akhir dengan pengalaman magang, survey lapangan,
+dan analisis teknis di bidang keairan.
 </p>
 
 
@@ -161,12 +193,19 @@ Mahasiswa semester akhir dengan fokus pada perencanaan sumber daya air dan anali
 
 <h2 id="skills">Skills</h2>
 
-<p>HEC-RAS | ArcGIS | AutoCAD</p>
+<span class="skill-badge">HEC-RAS</span>
+<span class="skill-badge">ArcGIS</span>
+<span class="skill-badge">AutoCAD</span>
 
 
 <h2 id="contact">Contact</h2>
 
 <p>Email: callmeferry999@gmail.com</p>
+
+
+<footer>
+© 2026 Moch Ferry Dwi Fitriansyah
+</footer>
 
 </div>
 
