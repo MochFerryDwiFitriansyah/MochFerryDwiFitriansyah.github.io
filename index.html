@@ -1,18 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Portfolio - Moch Ferry</title>
+
 <style>
 body{
 font-family:Arial, sans-serif;
-margin:40px auto;
-max-width:900px;
-line-height:1.7;
-padding:20px;
+margin:0;
 background:#f5f7fa;
 color:#333;
+line-height:1.7;
 }
 
-img{
-width:180px;
-border-radius:15px;
-margin-top:20px;
+nav{
+background:#1f4e79;
+padding:18px;
+text-align:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:20px;
+font-weight:bold;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:40px;
+}
+
+.hero{
+display:flex;
+align-items:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.hero img{
+width:220px;
+border-radius:20px;
+}
+
+.hero-text{
+max-width:550px;
+}
+
+.cv-button{
+display:inline-block;
+background:#1f4e79;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+border-radius:8px;
+margin-top:15px;
 }
 
 h1{
@@ -21,14 +64,17 @@ color:#1f4e79;
 
 h2{
 color:#1f4e79;
+margin-top:50px;
 border-bottom:2px solid #ddd;
 padding-bottom:5px;
-margin-top:40px;
 }
 
-h3{
-margin-top:30px;
-color:#2c3e50;
+.project-card{
+background:white;
+padding:20px;
+margin-top:25px;
+border-radius:15px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
 }
 
 p{
@@ -36,40 +82,51 @@ margin-bottom:10px;
 }
 </style>
 
+</head>
+<body>
 
-<style>
-body {
-  font-family: Arial;
-  margin: 40px;
-  line-height: 1.6;
-}
+<nav>
+<a href="#about">About</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#contact">Contact</a>
+</nav>
 
-img {
-  border-radius: 10px;
-}
+<div class="container">
 
-h1, h2 {
-  color: #2c3e50;
-}
-</style>
+<div class="hero">
+
+<img src="Fotoformal.JPG">
+
+<div class="hero-text">
 
 <h1>Moch Ferry Dwi Fitriansyah</h1>
 
 <p>Water Resources Engineering Student</p>
 
-<img src="Fotoformal.JPG" width="200">
+<p>
+Mahasiswa D4 Teknik Sipil - Teknologi Rekayasa Konstruksi Bangunan Air - Institut Teknologi Sepuluh Nopember
+</p>
 
-<p>Mahasiswa D4 Teknik Sipil - Teknologi Rekayasa Konstruksi Bangunan Air - Institut Teknologi Sepuluh Nopember</p>
+<a href="CV ATS Ferry ffixx.pdf" class="cv-button">
+Download CV
+</a>
 
-<h2>About Me</h2>
+</div>
+
+</div>
+
+
+<h2 id="about">About Me</h2>
 
 <p>
 Mahasiswa semester akhir dengan fokus pada perencanaan sumber daya air dan analisis hidrolika.
 </p>
 
-<h2>Projects</h2>
 
+<h2 id="projects">Projects</h2>
 
+<div class="project-card">
 <h3>Survey Sumur Irigasi Dangkal Madura</h3>
 
 <p><b>Tujuan:</b> Mendukung identifikasi kondisi lapangan untuk kebutuhan perencanaan.</p>
@@ -77,8 +134,10 @@ Mahasiswa semester akhir dengan fokus pada perencanaan sumber daya air dan anali
 <p><b>Metode:</b> Survey lapangan, pengukuran, dan penggambaran teknis.</p>
 
 <p><b>Hasil:</b> Data teknis awal untuk mendukung analisis dan perencanaan.</p>
+</div>
 
 
+<div class="project-card">
 <h3>Penelitian Sumur Resapan</h3>
 
 <p><b>Tujuan:</b> Mendukung kajian konservasi air melalui identifikasi penerapan sumur resapan.</p>
@@ -86,8 +145,10 @@ Mahasiswa semester akhir dengan fokus pada perencanaan sumber daya air dan anali
 <p><b>Metode:</b> Observasi lapangan, pengumpulan data, dan penyusunan laporan penelitian.</p>
 
 <p><b>Hasil:</b> Data dan informasi teknis yang mendukung analisis penelitian sumur resapan.</p>
+</div>
 
 
+<div class="project-card">
 <h3>Survey Topografi Proyek Gudang Peluru TNI</h3>
 
 <p><b>Tujuan:</b> Mendukung pengumpulan data teknis awal untuk rencana pengembangan proyek.</p>
@@ -95,17 +156,19 @@ Mahasiswa semester akhir dengan fokus pada perencanaan sumber daya air dan anali
 <p><b>Metode:</b> Pengukuran titik koordinat lapangan menggunakan RTK.</p>
 
 <p><b>Hasil:</b> Data koordinat yang mendukung kebutuhan survey awal dan perencanaan teknis.</p>
+</div>
 
 
-<h2>Skills</h2>
-<p>HEC-RAS, ArcGIS, AutoCAD</p>
+<h2 id="skills">Skills</h2>
 
-<h2>Contact</h2>
+<p>HEC-RAS | ArcGIS | AutoCAD</p>
+
+
+<h2 id="contact">Contact</h2>
+
 <p>Email: callmeferry999@gmail.com</p>
 
-<h2>Curriculum Vitae (CV)</h2>
+</div>
 
-<a href="CV ATS Ferry ffixx.pdf">
-CV ATS
-</a>
-
+</body>
+</html>
