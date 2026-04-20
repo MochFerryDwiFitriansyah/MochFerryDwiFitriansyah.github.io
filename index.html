@@ -168,14 +168,14 @@ nav a:hover{
     border: 1px solid #eee;
 }
 
-/* --- REVISI: MODAL DENGAN FOTO --- */
+/* --- MODAL SLIDER STYLE --- */
 .modal {
     display: none;
     position: fixed;
     z-index: 2000;
     left: 0; top: 0;
     width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.85);
     align-items: center;
     justify-content: center;
 }
@@ -184,11 +184,11 @@ nav a:hover{
     background: white;
     padding: 30px;
     border-radius: 20px;
-    max-width: 700px;
+    max-width: 800px;
     width: 90%;
     position: relative;
     max-height: 90vh;
-    overflow-y: auto; /* Agar bisa scroll jika konten panjang */
+    overflow-y: auto;
     animation: zoomIn 0.3s ease;
 }
 
@@ -197,13 +197,48 @@ nav a:hover{
     to {transform: scale(1); opacity: 1;}
 }
 
-.modal-image {
+.slider-container {
+    position: relative;
     width: 100%;
-    max-height: 350px;
-    object-fit: cover;
+    background: #000;
     border-radius: 12px;
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
+
+.modal-image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    display: none;
+}
+
+.modal-image.active {
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    background: rgba(0,0,0,0.5);
+    user-select: none;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.prev { left: 0; border-radius: 0 5px 5px 0; }
+.next { right: 0; border-radius: 5px 0 0 5px; }
+
+.prev:hover, .next:hover { background: rgba(0,0,0,0.8); }
 
 .close-btn {
     position: absolute;
@@ -211,7 +246,7 @@ nav a:hover{
     font-size: 30px;
     cursor: pointer;
     color: #333;
-    z-index: 10;
+    z-index: 100;
 }
 
 /* TYPOGRAPHY */
@@ -227,6 +262,7 @@ footer{ text-align:center; padding:40px; background: #f5f7fa; }
     .project-grid, .skills-grid { grid-template-columns: 1fr; }
     .about-wrapper { flex-direction: column-reverse; text-align: center; }
     .about-image-new { text-align: center; }
+    .modal-image { height: 250px; }
 }
 </style>
 
@@ -269,27 +305,27 @@ footer{ text-align:center; padding:40px; background: #f5f7fa; }
     <div class="container">
         <h2>Projects</h2>
         <div class="project-grid">
-            <div class="project-box" onclick="openModal('Survey Sumur Irigasi Dangkal, Madura', 'Proyek ini melibatkan survei lapangan di Madura untuk memetakan lokasi sumur irigasi dangkal. Menggunakan peralatan RTK untuk akurasi koordinat dan AutoCAD untuk pengolahan data teknis awal guna mendukung perencanaan sistem pengairan bagi masyarakat.', 'fotosid.jpeg')">
+            <div class="project-box" onclick="openModal('Survey Sumur Irigasi Dangkal, Madura', 'Proyek ini melibatkan survei lapangan di Madura untuk memetakan lokasi sumur irigasi dangkal. Menggunakan peralatan RTK untuk akurasi koordinat dan AutoCAD untuk pengolahan data teknis awal guna mendukung perencanaan sistem pengairan bagi masyarakat.', ['fotosid.jpeg', 'foto_madura_2.jpg', 'foto_madura_3.jpg'])">
                 <img src="fotosid.jpeg">
                 <div class="project-content">
                     <h3>Survey Sumur Irigasi Dangkal, Madura</h3>
-                    <p style="font-size:14px; color:#666;">Klik untuk detail proyek...</p>
+                    <p style="font-size:14px; color:#666;">Klik untuk slide foto...</p>
                 </div>
             </div>
             
-            <div class="project-box" onclick="openModal('Penelitian Sumur Resapan, Malang', 'Penelitian intensif mengenai efektivitas sumur resapan dalam menangani limpasan permukaan di wilayah Malang. Fokus pada observasi lapangan dan analisis data hidrologi untuk mendukung konservasi air tanah yang berkelanjutan.', 'fotosumur.jpg')">
+            <div class="project-box" onclick="openModal('Penelitian Sumur Resapan, Malang', 'Penelitian intensif mengenai efektivitas sumur resapan dalam menangani limpasan permukaan di wilayah Malang. Fokus pada observasi lapangan dan analisis data hidrologi untuk mendukung konservasi air tanah yang berkelanjutan.', ['fotosumur.jpg', 'foto_malang_2.jpg'])">
                 <img src="fotosumur.jpg">
                 <div class="project-content">
                     <h3>Penelitian Sumur Resapan, Malang</h3>
-                    <p style="font-size:14px; color:#666;">Klik untuk detail proyek...</p>
+                    <p style="font-size:14px; color:#666;">Klik untuk slide foto...</p>
                 </div>
             </div>
 
-            <div class="project-box" onclick="openModal('Survey Topografi, Sidoarjo', 'Kegiatan survei topografi untuk perencanaan area gudang di Sidoarjo. Menggunakan teknologi RTK untuk menghasilkan profil ketinggian tanah yang presisi sebagai dasar perhitungan volume cut and fill serta perencanaan drainase kawasan.', 'fotortk.jpg')">
+            <div class="project-box" onclick="openModal('Survey Topografi, Sidoarjo', 'Kegiatan survei topografi untuk perencanaan area gudang di Sidoarjo. Menggunakan teknologi RTK untuk menghasilkan profil ketinggian tanah yang presisi sebagai dasar perhitungan volume cut and fill serta perencanaan drainase kawasan.', ['fotortk.jpg', 'foto_sidoarjo_2.jpg'])">
                 <img src="fotortk.jpg">
                 <div class="project-content">
                     <h3>Survey Topografi, Sidoarjo</h3>
-                    <p style="font-size:14px; color:#666;">Klik untuk detail proyek...</p>
+                    <p style="font-size:14px; color:#666;">Klik untuk slide foto...</p>
                 </div>
             </div>
         </div>
@@ -320,26 +356,62 @@ footer{ text-align:center; padding:40px; background: #f5f7fa; }
 <div id="projectModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
-        <img id="modalImage" class="modal-image" src="" alt="Project Image">
+        
+        <div class="slider-container">
+            <div id="imageHolder">
+                </div>
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        </div>
+        
         <h2 id="modalTitle" style="border:none; margin-bottom: 10px;"></h2>
         <p id="modalDescription" style="font-size:18px; line-height:1.6; color:#444;"></p>
     </div>
 </div>
 
 <script>
-function openModal(title, description, imageSrc) {
+let currentSlideIndex = 0;
+let slideImages = [];
+
+function openModal(title, description, imagesArray) {
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalDescription").innerText = description;
     
-    let imgElement = document.getElementById("modalImage");
-    if (imageSrc) {
-        imgElement.src = imageSrc;
-        imgElement.style.display = "block";
-    } else {
-        imgElement.style.display = "none";
-    }
+    slideImages = imagesArray;
+    currentSlideIndex = 0;
     
+    renderSlides();
     document.getElementById("projectModal").style.display = "flex";
+}
+
+function renderSlides() {
+    const holder = document.getElementById("imageHolder");
+    holder.innerHTML = "";
+    
+    slideImages.forEach((src, index) => {
+        let img = document.createElement("img");
+        img.src = src;
+        img.className = "modal-image" + (index === 0 ? " active" : "");
+        holder.appendChild(img);
+    });
+    
+    // Sembunyikan navigasi jika hanya 1 foto
+    const hasMultiple = slideImages.length > 1;
+    document.querySelector(".prev").style.display = hasMultiple ? "block" : "none";
+    document.querySelector(".next").style.display = hasMultiple ? "block" : "none";
+}
+
+function changeSlide(n) {
+    const slides = document.getElementsByClassName("modal-image");
+    if (slides.length === 0) return;
+
+    slides[currentSlideIndex].classList.remove("active");
+    currentSlideIndex += n;
+    
+    if (currentSlideIndex >= slides.length) { currentSlideIndex = 0; }
+    if (currentSlideIndex < 0) { currentSlideIndex = slides.length - 1; }
+    
+    slides[currentSlideIndex].classList.add("active");
 }
 
 function closeModal() {
