@@ -41,10 +41,10 @@ opacity:0.8;
 .container{
 max-width:1200px;
 margin:auto;
-padding:0 50px; /* Diubah agar tidak bertabrakan dengan flex layout */
+padding:0 50px;
 }
 
-/* SECTION HOME TETAP SEPERTI ASLI */
+/* HERO SECTION */
 .hero{
 display:flex;
 align-items:center;
@@ -65,32 +65,20 @@ max-width:650px;
 font-size:20px;
 }
 
-/* --- REVISI: SECTION ABOUT ME MENJADI 1 HALAMAN PENUH --- */
+/* --- REVISI: ABOUT ME (TEXT KIRI, FOTO KANAN) --- */
 #about {
-    min-height: 100vh; /* Mengunci tinggi 1 layar penuh */
+    min-height: 100vh;
     display: flex;
-    align-items: center; /* Teks & Foto di tengah secara vertikal */
-    scroll-margin-top: 0px;
-    background: #ffffff; /* Warna beda sedikit untuk pemisah */
+    align-items: center;
+    background: #ffffff;
 }
 
 .about-wrapper {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 60px; /* Jarak antara teks dan foto */
     flex-wrap: wrap;
     width: 100%;
-}
-
-.about-image-new {
-    flex: 1;
-    min-width: 300px;
-}
-
-.about-image-new img {
-    width: 100%;
-    border-radius: 15px;
-    box-shadow: 10px 10px 0px #1f4e79; /* Aksen estetis */
 }
 
 .about-text-new {
@@ -98,13 +86,25 @@ font-size:20px;
     min-width: 350px;
 }
 
-/* Memberikan jarak agar konten setelah About tidak menempel */
+.about-image-new {
+    flex: 1;
+    min-width: 300px;
+    text-align: right; /* Menjaga foto tetap rapat ke kanan */
+}
+
+.about-image-new img {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    box-shadow: -10px 10px 0px #1f4e79; /* Aksen biru dipindah ke sisi kiri foto */
+}
+
+/* --- PROJECTS & OTHERS --- */
 #projects {
     padding-top: 100px;
     min-height: 100vh;
 }
 
-/* SISA CSS TETAP SAMA */
 .cv-button{
 display:inline-block;
 background:#1f4e79;
@@ -124,7 +124,6 @@ margin-bottom:15px;
 
 h2 {
 color:#1f4e79;
-margin-top: 0; /* Disesuaikan agar rapi di full page */
 font-size: 36px;
 border-bottom:2px solid #ddd;
 padding-bottom:10px;
@@ -179,9 +178,10 @@ padding:25px;
 border-top:1px solid #ddd;
 }
 
-@media (max-width: 768px) {
-    #about { height: auto; padding: 50px 0; }
-    .about-wrapper { flex-direction: column; text-align: center; }
+@media (max-width: 850px) {
+    #about { height: auto; padding: 80px 0; }
+    .about-wrapper { flex-direction: column-reverse; text-align: center; }
+    .about-image-new { text-align: center; }
 }
 </style>
 
@@ -211,14 +211,14 @@ border-top:1px solid #ddd;
 
     <section id="about">
         <div class="about-wrapper">
-            <div class="about-image-new">
-                <img src="foto_tambahan_kamu.jpg" alt="Foto Kegiatan">
-            </div>
             <div class="about-text-new">
                 <h2>About Me</h2>
                 <p>
                     Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konstruksi Bangunan Air di Institut Teknologi Sepuluh Nopember dengan fokus pada perencanaan sumber daya air dan analisis hidrolika. Berpengalaman melalui magang pada proyek irigasi di BBWS Bengawan Solo dan Konsultan CV Intishar Karya, serta keterlibatan dalam Survei Proyek Sumur Irigasi Dangkal (SID) di Madura yang mendukung analisis teknis dan pengawasan lapangan. Didukung kemampuan menggunakan software HEC-RAS, ArcGIS, dan AutoCAD, serta siap berkontribusi dalam perencanaan dan analisis di bidang keairan.
                 </p>
+            </div>
+            <div class="about-image-new">
+                <img src="fotomagang.jpg" alt="Foto magang">
             </div>
         </div>
     </section>
@@ -237,56 +237,19 @@ border-top:1px solid #ddd;
                     </div>
                 </div>
             </div>
-
-            <div class="project-box">
-                <img src="fotosumur.jpg">
-                <div class="project-content">
-                    <h3>Penelitian Sumur Resapan, Malang</h3>
-                    <div class="project-meta">
-                        <b>Role:</b> Field Observation<br>
-                        <b>Tools:</b> Survey, Analysis<br>
-                        <b>Output:</b> Data penelitian konservasi air.
-                    </div>
-                </div>
             </div>
-
-            <div class="project-box">
-                <img src="fotortk.jpg">
-                <div class="project-content">
-                    <h3>Survey Topografi Gudang Peluru TNI, Sidoarjo</h3>
-                    <div class="project-meta">
-                        <b>Role:</b> Topographic Survey<br>
-                        <b>Tools:</b> RTK<br>
-                        <b>Output:</b> Coordinate data for preliminary planning.
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     <h2 id="skills">Skills</h2>
     <div class="skills-grid">
-        <div class="skill-card">
-            <h3>Hydraulic Modeling</h3>
-            <p>HEC-RAS, EPA-SWMM, EPANET</p>
-        </div>
-        <div class="skill-card">
-            <h3>GIS & Mapping</h3>
-            <p>ArcGIS</p>
-        </div>
-        <div class="skill-card">
-            <h3>CAD & Drafting</h3>
-            <p>AutoCAD</p>
-        </div>
-        <div class="skill-card">
-            <h3>Geotechnical</h3>
-            <p>GeoStudio</p>
-        </div>
+        <div class="skill-card"><h3>Hydraulic Modeling</h3><p>HEC-RAS, EPA-SWMM, EPANET</p></div>
+        <div class="skill-card"><h3>GIS & Mapping</h3><p>ArcGIS</p></div>
+        <div class="skill-card"><h3>CAD & Drafting</h3><p>AutoCAD</p></div>
+        <div class="skill-card"><h3>Geotechnical</h3><p>GeoStudio</p></div>
     </div>
 
     <h2 id="contact">Contact</h2>
-    <p>Email: callmeferry999@gmail.com</p>
-    <p>No.Hp: 085856105883</p>
+    <p>Email: callmeferry999@gmail.com | No.Hp: 085856105883</p>
 
     <footer>
     © 2026 Moch Ferry Dwi Fitriansyah
