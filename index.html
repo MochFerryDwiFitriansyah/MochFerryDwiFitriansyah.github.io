@@ -21,6 +21,9 @@ nav{
 background:#1f4e79;
 padding:18px;
 text-align:center;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 nav a{
@@ -44,9 +47,10 @@ padding:50px;
 .hero{
 display:flex;
 align-items:center;
-gap:40px;
+justify-content:center;
+min-height:100vh;
+gap:50px;
 flex-wrap:wrap;
-margin-top:20px;
 }
 
 .hero img{
@@ -85,6 +89,13 @@ border-bottom:2px solid #ddd;
 padding-bottom:5px;
 }
 
+#about,
+#projects,
+#skills,
+#contact{
+scroll-margin-top:90px;
+}
+
 .project-card{
 background:white;
 padding:30px;
@@ -107,7 +118,7 @@ width:100%;
 border-radius:12px;
 margin:15px 0 20px 0;
 }
-  
+
 .skill-badge{
 display:inline-block;
 background:#1f4e79;
@@ -188,9 +199,9 @@ Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konst
 
 <div class="project-card">
 <h3>Penelitian Sumur Resapan</h3>
-  
+
 <img src="fotosumur.jpg" class="project-img">
-  
+
 <p><b>Tujuan:</b> Mendukung kajian konservasi air melalui identifikasi penerapan sumur resapan.</p>
 
 <p><b>Metode:</b> Observasi lapangan, pengumpulan data, dan penyusunan laporan penelitian.</p>
@@ -220,7 +231,7 @@ Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konst
 <span class="skill-badge">EPA-SWMM</span>
 <span class="skill-badge">Epanet</span>
 <span class="skill-badge">Geostudio</span>
-  
+
 
 <h2 id="contact">Contact</h2>
 
