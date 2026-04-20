@@ -98,27 +98,36 @@ padding-bottom:5px;
 scroll-margin-top:90px;
 }
 
-.project-card{
+/* PROJECT GRID BARU */
+.project-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+margin-top:30px;
+}
+
+.project-box{
 background:white;
-padding:30px;
-margin-top:28px;
+padding:25px;
 border-radius:15px;
 box-shadow:0 2px 8px rgba(0,0,0,0.08);
-transition:0.3s;
 }
 
-.project-card:hover{
-transform:translateY(-2px);
-}
-
-.project-card p{
-margin-bottom:14px;
-}
-
-.project-img{
+.project-box img{
 width:100%;
 border-radius:12px;
-margin:15px 0 20px 0;
+margin-bottom:20px;
+}
+
+.project-box h3{
+font-size:24px;
+margin-bottom:15px;
+}
+
+.project-meta{
+font-size:15px;
+line-height:1.7;
+margin-top:15px;
 }
 
 .skill-badge{
@@ -190,42 +199,46 @@ Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konst
 
 <h2 id="projects">Projects</h2>
 
-<div class="project-card">
+<div class="project-grid">
+
+<div class="project-box">
+<img src="fotosid.jpeg">
+
 <h3>Survey Sumur Irigasi Dangkal Madura</h3>
 
-<img src="fotosid.jpeg" class="project-img">
-
-<p><b>Tujuan:</b> Mendukung identifikasi kondisi lapangan untuk kebutuhan perencanaan.</p>
-
-<p><b>Metode:</b> Survey lapangan, pengukuran, dan penggambaran teknis.</p>
-
-<p><b>Hasil:</b> Data teknis awal untuk mendukung analisis dan perencanaan.</p>
+<div class="project-meta">
+<b>Role:</b> Survey Lapangan<br>
+<b>Tools:</b> RTK, AutoCAD<br>
+<b>Output:</b> Data teknis awal untuk analisis perencanaan.
+</div>
 </div>
 
 
-<div class="project-card">
+<div class="project-box">
+<img src="fotosumur.jpg">
+
 <h3>Penelitian Sumur Resapan</h3>
 
-<img src="fotosumur.jpg" class="project-img">
-
-<p><b>Tujuan:</b> Mendukung kajian konservasi air melalui identifikasi penerapan sumur resapan.</p>
-
-<p><b>Metode:</b> Observasi lapangan, pengumpulan data, dan penyusunan laporan penelitian.</p>
-
-<p><b>Hasil:</b> Data dan informasi teknis yang mendukung analisis penelitian sumur resapan.</p>
+<div class="project-meta">
+<b>Role:</b> Field Observation<br>
+<b>Tools:</b> Survey, Analysis<br>
+<b>Output:</b> Data penelitian konservasi air.
+</div>
 </div>
 
 
-<div class="project-card">
-<h3>Survey Topografi Proyek Gudang Peluru TNI</h3>
+<div class="project-box">
+<img src="fotortk.jpg">
 
-<img src="fotortk.jpg" class="project-img">
+<h3>Survey Topografi Gudang Peluru TNI</h3>
 
-<p><b>Tujuan:</b> Mendukung pengumpulan data teknis awal untuk rencana pengembangan proyek.</p>
+<div class="project-meta">
+<b>Role:</b> Topographic Survey<br>
+<b>Tools:</b> RTK<br>
+<b>Output:</b> Coordinate data for preliminary planning.
+</div>
+</div>
 
-<p><b>Metode:</b> Pengukuran titik koordinat lapangan menggunakan RTK.</p>
-
-<p><b>Hasil:</b> Data koordinat yang mendukung kebutuhan survey awal dan perencanaan teknis.</p>
 </div>
 
 
