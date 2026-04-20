@@ -5,77 +5,92 @@
 
 <style>
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    font-family:Arial, sans-serif;
-    font-size:17px;
-    margin:0; /* Menghilangkan margin default agar konten rapat ke pinggir layar */
-    background:#f5f7fa;
-    color:#333;
-    line-height:1.8;
+font-family:Arial, sans-serif;
+font-size:17px;
+margin:0;
+background:#f5f7fa;
+color:#333;
+line-height:1.8;
 }
 
 nav{
-    background:#1f4e79;
-    padding:18px;
-    text-align:center;
-    position:sticky;
-    top:0;
-    z-index:1000;
+background:#1f4e79;
+padding:18px;
+text-align:center;
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 nav a{
-    color:white;
-    text-decoration:none;
-    margin:20px;
-    font-weight:bold;
-    transition:0.3s;
+color:white;
+text-decoration:none;
+margin:20px;
+font-weight:bold;
+transition:0.3s;
 }
 
 nav a:hover{
-    opacity:0.8;
+opacity:0.8;
 }
 
-/* Container untuk bagian yang tidak full-screen (Home & Projects) */
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:0 50px;
+max-width:1200px;
+margin:auto;
+padding:0 50px; /* Diubah agar tidak bertabrakan dengan flex layout */
 }
 
-/* HERO SECTION (HOME) */
+/* SECTION HOME TETAP SEPERTI ASLI */
 .hero{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    min-height:85vh;
-    gap:60px;
-    flex-wrap:wrap;
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:78vh;
+gap:60px;
+flex-wrap:wrap;
+padding: 50px 0;
 }
 
-/* --- REVISI UTAMA: ABOUT ME FULL SCREEN --- */
+.hero img{
+width:300px;
+border-radius:20px;
+}
+
+.hero-text{
+max-width:650px;
+font-size:20px;
+}
+
+/* --- REVISI: SECTION ABOUT ME MENJADI 1 HALAMAN PENUH --- */
 #about {
-    width: 100%; /* Memastikan lebar memenuhi 100% layar browser */
-    min-height: 100vh; /* Memastikan tinggi memenuhi 100% tinggi layar */
-    background: #ffffff; /* Warna putih full */
+    min-height: 100vh; /* Mengunci tinggi 1 layar penuh */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    align-items: center; /* Teks & Foto di tengah secara vertikal */
+    scroll-margin-top: 0px;
+    background: #ffffff; /* Warna beda sedikit untuk pemisah */
 }
 
 .about-wrapper {
-    max-width: 1200px; /* Isi konten tetap rapi di tengah */
-    width: 100%;
-    margin: auto;
-    padding: 0 50px;
     display: flex;
     align-items: center;
-    gap: 60px;
+    gap: 50px;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+.about-image-new {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-image-new img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 10px 10px 0px #1f4e79; /* Aksen estetis */
 }
 
 .about-text-new {
@@ -83,36 +98,91 @@ nav a:hover{
     min-width: 350px;
 }
 
-.about-image-new {
-    flex: 1;
-    min-width: 300px;
-    text-align: right;
-}
-
-.about-image-new img {
-    width: 100%;
-    max-width: 500px; /* Ukuran foto diperbesar sedikit agar pas dengan layout full screen */
-    border-radius: 15px;
-    box-shadow: -15px 15px 0px #1f4e79;
-}
-
-/* SECTION PROJECTS (OTOMATIS PINDAH KE HALAMAN BERIKUTNYA) */
+/* Memberikan jarak agar konten setelah About tidak menempel */
 #projects {
-    padding: 100px 0;
-    background: #f5f7fa; /* Kembali ke warna background abu-abu */
+    padding-top: 100px;
+    min-height: 100vh;
 }
 
-h1{ color:#1f4e79; font-size:52px; margin-bottom:15px; }
+/* SISA CSS TETAP SAMA */
+.cv-button{
+display:inline-block;
+background:#1f4e79;
+color:white;
+padding:12px 20px;
+text-decoration:none;
+border-radius:8px;
+margin-top:15px;
+transition:0.3s;
+}
+
+h1{
+color:#1f4e79;
+font-size:52px;
+margin-bottom:15px;
+}
 
 h2 {
-    color:#1f4e79;
-    font-size: 36px;
-    border-bottom:2px solid #ddd;
-    padding-bottom:10px;
-    margin-bottom: 25px;
+color:#1f4e79;
+margin-top: 0; /* Disesuaikan agar rapi di full page */
+font-size: 36px;
+border-bottom:2px solid #ddd;
+padding-bottom:10px;
+margin-bottom: 25px;
 }
 
-/* Style lain tetap sama seperti codingan kamu sebelumnya */
+.project-grid{
+display:flex;
+flex-direction:column;
+gap:35px;
+margin-top:30px;
+}
+
+.project-box{
+display:flex;
+align-items:center;
+gap:30px;
+background:white;
+padding:28px;
+border-radius:18px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+.project-box img{
+width:380px;
+height:260px;
+object-fit:cover;
+border-radius:12px;
+flex-shrink:0;
+}
+
+.skills-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:25px;
+margin-top:30px;
+}
+
+.skill-card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+footer{
+margin-top:60px;
+text-align:center;
+font-size:14px;
+color:#666;
+padding:25px;
+border-top:1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    #about { height: auto; padding: 50px 0; }
+    .about-wrapper { flex-direction: column; text-align: center; }
+}
 </style>
 
 </head>
@@ -127,34 +197,102 @@ h2 {
 </nav>
 
 <div class="container">
+
     <div class="hero" id="home">
-        <img src="Fotoformal.JPG" style="width:300px; border-radius:20px;">
+        <img src="Fotoformal.JPG">
         <div class="hero-text">
             <h1>Moch Ferry Dwi Fitriansyah</h1>
             <p>Water Resources Engineering Student</p>
-            <p>Mahasiswa D4 Teknik Sipil - Teknologi Rekayasa Konstruksi Bangunan Air - ITS</p>
+            <p>Mahasiswa D4 Teknik Sipil - Teknologi Rekayasa Konstruksi Bangunan Air - Institut Teknologi Sepuluh Nopember</p>
             <p>Hydraulic Modeling | Water Resources Planning | Survey Engineering</p>
+            <a href="cvfinal.pdf" class="cv-button">Download CV</a>
         </div>
     </div>
+
+    <section id="about">
+        <div class="about-wrapper">
+            <div class="about-image-new">
+                <img src="foto_tambahan_kamu.jpg" alt="Foto Kegiatan">
+            </div>
+            <div class="about-text-new">
+                <h2>About Me</h2>
+                <p>
+                    Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konstruksi Bangunan Air di Institut Teknologi Sepuluh Nopember dengan fokus pada perencanaan sumber daya air dan analisis hidrolika. Berpengalaman melalui magang pada proyek irigasi di BBWS Bengawan Solo dan Konsultan CV Intishar Karya, serta keterlibatan dalam Survei Proyek Sumur Irigasi Dangkal (SID) di Madura yang mendukung analisis teknis dan pengawasan lapangan. Didukung kemampuan menggunakan software HEC-RAS, ArcGIS, dan AutoCAD, serta siap berkontribusi dalam perencanaan dan analisis di bidang keairan.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <div id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-box">
+                <img src="fotosid.jpeg">
+                <div class="project-content">
+                    <h3>Survey Sumur Irigasi Dangkal, Madura</h3>
+                    <div class="project-meta">
+                        <b>Role:</b> Survey Lapangan<br>
+                        <b>Tools:</b> RTK, AutoCAD<br>
+                        <b>Output:</b> Data teknis awal untuk analisis perencanaan.
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-box">
+                <img src="fotosumur.jpg">
+                <div class="project-content">
+                    <h3>Penelitian Sumur Resapan, Malang</h3>
+                    <div class="project-meta">
+                        <b>Role:</b> Field Observation<br>
+                        <b>Tools:</b> Survey, Analysis<br>
+                        <b>Output:</b> Data penelitian konservasi air.
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-box">
+                <img src="fotortk.jpg">
+                <div class="project-content">
+                    <h3>Survey Topografi Gudang Peluru TNI, Sidoarjo</h3>
+                    <div class="project-meta">
+                        <b>Role:</b> Topographic Survey<br>
+                        <b>Tools:</b> RTK<br>
+                        <b>Output:</b> Coordinate data for preliminary planning.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="skills">Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h3>Hydraulic Modeling</h3>
+            <p>HEC-RAS, EPA-SWMM, EPANET</p>
+        </div>
+        <div class="skill-card">
+            <h3>GIS & Mapping</h3>
+            <p>ArcGIS</p>
+        </div>
+        <div class="skill-card">
+            <h3>CAD & Drafting</h3>
+            <p>AutoCAD</p>
+        </div>
+        <div class="skill-card">
+            <h3>Geotechnical</h3>
+            <p>GeoStudio</p>
+        </div>
+    </div>
+
+    <h2 id="contact">Contact</h2>
+    <p>Email: callmeferry999@gmail.com</p>
+    <p>No.Hp: 085856105883</p>
+
+    <footer>
+    © 2026 Moch Ferry Dwi Fitriansyah
+    </footer>
+
 </div>
-
-<section id="about">
-    <div class="about-wrapper">
-        <div class="about-text-new">
-            <h2>About Me</h2>
-            <p>
-                Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konstruksi Bangunan Air di Institut Teknologi Sepuluh Nopember dengan fokus pada perencanaan sumber daya air dan analisis hidrolika. Berpengalaman melalui magang pada proyek irigasi di BBWS Bengawan Solo dan Konsultan CV Intishar Karya, serta keterlibatan dalam Survei Proyek Sumur Irigasi Dangkal (SID) di Madura yang mendukung analisis teknis dan pengawasan lapangan. Didukung kemampuan menggunakan software HEC-RAS, ArcGIS, dan AutoCAD, serta siap berkontribusi dalam perencanaan dan analisis di bidang keairan.
-            </p>
-        </div>
-        <div class="about-image-new">
-            <img src="fotomagang.jpg" alt="Foto Kegiatan">
-        </div>
-    </div>
-</section>
-
-<div class="container" id="projects">
-    <h2>Projects</h2>
-    </div>
 
 </body>
 </html>
