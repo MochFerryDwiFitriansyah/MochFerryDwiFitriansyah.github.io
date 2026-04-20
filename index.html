@@ -44,7 +44,7 @@ nav a:hover{
     padding:0 50px;
 }
 
-/* SECTION HERO */
+/* SECTION HOME */
 .hero{
     display:flex;
     align-items:center;
@@ -65,7 +65,7 @@ nav a:hover{
     font-size:20px;
 }
 
-/* SECTION ABOUT */
+/* SECTION ABOUT (FULL SCREEN) */
 #about {
     width: 100%;
     min-height: 100vh;
@@ -73,15 +73,9 @@ nav a:hover{
     align-items: center;
     justify-content: center;
     background: #ffffff;
-    margin: 0;
-    padding: 0;
 }
 
 .about-wrapper {
-    max-width: 1200px;
-    width: 100%;
-    margin: auto;
-    padding: 0 50px;
     display: flex;
     align-items: center;
     gap: 60px;
@@ -106,14 +100,14 @@ nav a:hover{
     box-shadow: -15px 15px 0px #1f4e79;
 }
 
-/* --- REVISI: PROJECTS FULL SCREEN --- */
+/* SECTION PROJECTS (FULL SCREEN) */
 #projects {
     width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: #f5f7fa; /* Warna sedikit abu agar beda dengan About */
-    padding: 50px 0;
+    background: #f5f7fa;
+    padding: 80px 0;
     box-sizing: border-box;
 }
 
@@ -132,11 +126,12 @@ nav a:hover{
     border-radius: 18px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: 0.3s;
-    height: 100%;
+    cursor: pointer; /* Indikasi bisa diklik */
 }
 
 .project-box:hover {
     transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 .project-box img {
@@ -147,21 +142,14 @@ nav a:hover{
     margin-bottom: 15px;
 }
 
-.project-content h3 {
-    font-size: 18px;
-    margin: 0 0 10px 0;
-    color: #1f4e79;
-    line-height: 1.4;
-}
-
-/* --- REVISI: SKILLS FULL SCREEN --- */
+/* SECTION SKILLS (FULL SCREEN) */
 #skills {
     width: 100%;
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: #ffffff; /* Kembali ke putih */
-    padding: 50px 0;
+    background: #ffffff;
+    padding: 80px 0;
     box-sizing: border-box;
 }
 
@@ -176,37 +164,56 @@ nav a:hover{
     background:white;
     padding:25px;
     border-radius:15px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* Sedikit lebih tegas */
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
     border: 1px solid #eee;
 }
 
-/* --- GENERAL TYPOGRAPHY & FOOTER --- */
+/* MODAL STYLE */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {transform: scale(0.9); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px; top: 15px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #999;
+}
+
+/* TYPOGRAPHY */
 h1{ color:#1f4e79; font-size:52px; margin-bottom:15px; }
+h2 { color:#1f4e79; font-size: 36px; border-bottom:2px solid #ddd; padding-bottom:10px; margin-bottom: 25px; }
+h3 { color: #1f4e79; margin-top: 0; }
 
-h2 {
-    color:#1f4e79;
-    font-size: 36px;
-    border-bottom:2px solid #ddd;
-    padding-bottom:10px;
-    margin-bottom: 25px;
-}
+footer{ text-align:center; padding:40px; background: #f5f7fa; }
 
-footer{
-    margin-top:0;
-    text-align:center;
-    padding:40px;
-    background: #f5f7fa;
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .project-grid { grid-template-columns: 1fr 1fr; }
-}
-
+/* RESPONSIVE */
+@media (max-width: 992px) { .project-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 768px) {
-    .project-grid { grid-template-columns: 1fr; }
-    .skills-grid { grid-template-columns: 1fr; }
-    #about, #projects, #skills { min-height: auto; padding: 80px 0; }
+    .project-grid, .skills-grid { grid-template-columns: 1fr; }
     .about-wrapper { flex-direction: column-reverse; text-align: center; }
     .about-image-new { text-align: center; }
 }
@@ -236,15 +243,13 @@ footer{
 </div>
 
 <section id="about">
-    <div class="about-wrapper">
+    <div class="container about-wrapper">
         <div class="about-text-new">
             <h2>About Me</h2>
-            <p>
-                Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konstruksi Bangunan Air di Institut Teknologi Sepuluh Nopember dengan fokus pada perencanaan sumber daya air dan analisis hidrolika. Berpengalaman melalui magang pada proyek irigasi di BBWS Bengawan Solo dan Konsultan CV Intishar Karya, serta keterlibatan dalam Survei Proyek Sumur Irigasi Dangkal (SID) di Madura yang mendukung analisis teknis dan pengawasan lapangan. Didukung kemampuan menggunakan software HEC-RAS, ArcGIS, dan AutoCAD, serta siap berkontribusi dalam perencanaan dan analisis di bidang keairan.
-            </p>
+            <p>Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konstruksi Bangunan Air di Institut Teknologi Sepuluh Nopember dengan fokus pada perencanaan sumber daya air dan analisis hidrolika. Berpengalaman melalui magang pada proyek irigasi di BBWS Bengawan Solo dan Konsultan CV Intishar Karya, serta keterlibatan dalam Survei Proyek Sumur Irigasi Dangkal (SID) di Madura yang mendukung analisis teknis dan pengawasan lapangan.</p>
         </div>
         <div class="about-image-new">
-            <img src="fotomagang.jpg" alt="Foto Kegiatan">
+            <img src="fotomagang.jpg">
         </div>
     </div>
 </section>
@@ -253,39 +258,27 @@ footer{
     <div class="container">
         <h2>Projects</h2>
         <div class="project-grid">
-            <div class="project-box">
+            <div class="project-box" onclick="openModal('Survey Sumur Irigasi Dangkal, Madura', 'Proyek ini melibatkan survei lapangan di Madura untuk memetakan lokasi sumur irigasi dangkal. Menggunakan peralatan RTK untuk akurasi koordinat dan AutoCAD untuk pengolahan data teknis awal guna mendukung perencanaan sistem pengairan bagi masyarakat.')">
                 <img src="fotosid.jpeg">
                 <div class="project-content">
                     <h3>Survey Sumur Irigasi Dangkal, Madura</h3>
-                    <div class="project-meta">
-                        <b>Role:</b> Survey Lapangan<br>
-                        <b>Tools:</b> RTK, AutoCAD<br>
-                        <b>Output:</b> Data teknis awal untuk analisis perencanaan.
-                    </div>
+                    <p style="font-size:14px; color:#666;">Klik untuk detail proyek...</p>
                 </div>
             </div>
             
-            <div class="project-box">
+            <div class="project-box" onclick="openModal('Penelitian Sumur Resapan, Malang', 'Penelitian intensif mengenai efektivitas sumur resapan dalam menangani limpasan permukaan di wilayah Malang. Fokus pada observasi lapangan dan analisis data hidrologi untuk mendukung konservasi air tanah yang berkelanjutan.')">
                 <img src="fotosumur.jpg">
                 <div class="project-content">
                     <h3>Penelitian Sumur Resapan, Malang</h3>
-                    <div class="project-meta">
-                        <b>Role:</b> Field Observation<br>
-                        <b>Tools:</b> Survey, Analysis<br>
-                        <b>Output:</b> Data penelitian konservasi air.
-                    </div>
+                    <p style="font-size:14px; color:#666;">Klik untuk detail proyek...</p>
                 </div>
             </div>
 
-            <div class="project-box">
+            <div class="project-box" onclick="openModal('Survey Topografi, Sidoarjo', 'Kegiatan survei topografi untuk perencanaan area gudang di Sidoarjo. Menggunakan teknologi RTK untuk menghasilkan profil ketinggian tanah yang presisi sebagai dasar perhitungan volume cut and fill serta perencanaan drainase kawasan.')">
                 <img src="fotortk.jpg">
                 <div class="project-content">
                     <h3>Survey Topografi, Sidoarjo</h3>
-                    <div class="project-meta">
-                        <b>Role:</b> Topographic Survey<br>
-                        <b>Tools:</b> RTK<br>
-                        <b>Output:</b> Data koordinat perencanaan awal.
-                    </div>
+                    <p style="font-size:14px; color:#666;">Klik untuk detail proyek...</p>
                 </div>
             </div>
         </div>
@@ -301,8 +294,8 @@ footer{
             <div class="skill-card"><h3>CAD & Drafting</h3><p>AutoCAD</p></div>
             <div class="skill-card"><h3>Geotechnical</h3><p>GeoStudio</p></div>
         </div>
-        
-        <div id="contact" style="margin-top: 50px;">
+
+        <div id="contact" style="margin-top: 60px;">
             <h2>Contact</h2>
             <p>Email: callmeferry999@gmail.com | No.Hp: 085856105883</p>
         </div>
@@ -310,8 +303,35 @@ footer{
 </section>
 
 <footer>
-© 2026 Moch Ferry Dwi Fitriansyah
+    © 2026 Moch Ferry Dwi Fitriansyah
 </footer>
+
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle" style="border:none;"></h2>
+        <p id="modalDescription" style="font-size:18px; line-height:1.6; color:#444;"></p>
+    </div>
+</div>
+
+<script>
+function openModal(title, description) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDescription").innerText = description;
+    document.getElementById("projectModal").style.display = "flex";
+}
+
+function closeModal() {
+    document.getElementById("projectModal").style.display = "none";
+}
+
+window.onclick = function(event) {
+    let modal = document.getElementById("projectModal");
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
 
 </body>
 </html>
