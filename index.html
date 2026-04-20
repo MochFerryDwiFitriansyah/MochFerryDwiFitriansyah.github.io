@@ -44,7 +44,7 @@ nav a:hover{
     padding:0 50px;
 }
 
-/* --- SECTION HOME & VIEW CV --- */
+/* --- SECTION HOME & CV --- */
 .hero{
     display:flex;
     align-items:center;
@@ -84,42 +84,7 @@ nav a:hover{
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* SECTION ABOUT */
-#about {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ffffff;
-}
-
-.about-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-.about-text-new {
-    flex: 1.5;
-    min-width: 350px;
-}
-
-.about-image-new {
-    flex: 1;
-    min-width: 300px;
-    text-align: right;
-}
-
-.about-image-new img {
-    width: 100%;
-    max-width: 480px;
-    border-radius: 15px;
-    box-shadow: -15px 15px 0px #1f4e79;
-}
-
-/* SECTION PROJECTS */
+/* --- SECTION PROJECTS --- */
 #projects {
     width: 100%;
     min-height: 100vh;
@@ -150,7 +115,6 @@ nav a:hover{
 
 .project-box:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
 }
 
 .project-box img {
@@ -161,7 +125,7 @@ nav a:hover{
     margin-bottom: 15px;
 }
 
-/* MODAL SLIDER STYLE */
+/* --- MODAL & SLIDER --- */
 .modal {
     display: none;
     position: fixed;
@@ -182,35 +146,30 @@ nav a:hover{
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
-    animation: zoomIn 0.3s ease;
-}
-
-@keyframes zoomIn {
-    from {transform: scale(0.9); opacity: 0;}
-    to {transform: scale(1); opacity: 1;}
 }
 
 .slider-container {
     position: relative;
     width: 100%;
+    height: 400px;
     background: #000;
     border-radius: 12px;
     margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
+}
+
+.image-holder {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
 }
 
 .modal-image {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: contain;
-    display: none;
-}
-
-.modal-image.active {
-    display: block;
+    flex-shrink: 0;
 }
 
 .prev, .next {
@@ -225,7 +184,6 @@ nav a:hover{
     background: rgba(0,0,0,0.5);
     user-select: none;
     text-decoration: none;
-    transition: 0.3s;
 }
 
 .prev { left: 0; border-radius: 0 5px 5px 0; }
@@ -237,51 +195,16 @@ nav a:hover{
     font-size: 30px;
     cursor: pointer;
     color: #333;
-    z-index: 100;
 }
 
-/* SECTION SKILLS */
-#skills {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: #ffffff;
-    padding: 80px 0;
-    box-sizing: border-box;
-}
+h1{ color:#1f4e79; font-size:52px; }
+h2{ color:#1f4e79; font-size:36px; border-bottom:2px solid #ddd; padding-bottom:10px; }
 
-.skills-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:25px;
-    margin-top:30px;
-}
-
-.skill-card{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
-}
-
-/* TYPOGRAPHY */
-h1{ color:#1f4e79; font-size:52px; margin-bottom:15px; }
-h2 { color:#1f4e79; font-size: 36px; border-bottom:2px solid #ddd; padding-bottom:10px; margin-bottom: 25px; }
-h3 { color: #1f4e79; margin-top: 0; }
-
-footer{ text-align:center; padding:40px; background: #f5f7fa; }
-
-/* RESPONSIVE */
-@media (max-width: 992px) { .project-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 768px) {
-    .project-grid, .skills-grid { grid-template-columns: 1fr; }
-    .about-wrapper { flex-direction: column-reverse; text-align: center; }
-    .about-image-new { text-align: center; }
-    .modal-image { height: 250px; }
+    .project-grid { grid-template-columns: 1fr; }
+    .slider-container { height: 250px; }
 }
 </style>
-
 </head>
 <body>
 
@@ -301,126 +224,77 @@ footer{ text-align:center; padding:40px; background: #f5f7fa; }
             <p>Water Resources Engineering Student</p>
             <p>Mahasiswa D4 Teknik Sipil - Teknologi Rekayasa Konstruksi Bangunan Air - ITS</p>
             <p>Hydraulic Modeling | Water Resources Planning | Survey Engineering</p>
-            <a href="CV_Moch_Ferry.pdf" target="_blank" class="download-btn">Lihat CV</a>
+            <a href="cvfinal.pdf" target="_blank" class="download-btn">Lihat CV</a>
         </div>
     </div>
 </div>
-
-<section id="about">
-    <div class="container about-wrapper">
-        <div class="about-text-new">
-            <h2>About Me</h2>
-            <p>Mahasiswa semester akhir D4 Teknik Sipil, program studi Teknologi Rekayasa Konstruksi Bangunan Air di Institut Teknologi Sepuluh Nopember dengan fokus pada perencanaan sumber daya air dan analisis hidrolika. Berpengalaman melalui magang pada proyek irigasi di BBWS Bengawan Solo dan Konsultan CV Intishar Karya, serta keterlibatan dalam Survei Proyek Sumur Irigasi Dangkal (SID) di Madura yang mendukung analisis teknis dan pengawasan lapangan.</p>
-        </div>
-        <div class="about-image-new">
-            <img src="fotomagang.jpg">
-        </div>
-    </div>
-</section>
 
 <section id="projects">
     <div class="container">
         <h2>Projects</h2>
         <div class="project-grid">
-            <div class="project-box" onclick="openModal('Survey Sumur Irigasi Dangkal, Madura', 'Proyek ini melibatkan survei lapangan di Madura untuk memetakan lokasi sumur irigasi dangkal. Menggunakan peralatan RTK untuk akurasi koordinat dan AutoCAD untuk pengolahan data teknis awal.', ['fotosid.jpeg', 'foto_madura_2.jpg'])">
+            <div class="project-box" onclick="openModal('Survey Sumur Irigasi Dangkal, Madura', 'Proyek survei lapangan di Madura.', ['fotosid.jpeg', 'madura_2.jpg'])">
                 <img src="fotosid.jpeg">
-                <div class="project-content">
-                    <h3>Survey Sumur Irigasi Dangkal, Madura</h3>
-                    <p style="font-size:14px; color:#666;">Klik untuk detail & foto...</p>
-                </div>
+                <h3>Survey Sumur Irigasi Dangkal, Madura</h3>
             </div>
-            
-            <div class="project-box" onclick="openModal('Penelitian Sumur Resapan, Malang', 'Penelitian intensif mengenai efektivitas sumur resapan dalam menangani limpasan permukaan di wilayah Malang. Fokus pada observasi lapangan dan analisis data hidrologi.', ['fotosumur.jpg', 'foto_malang_2.jpg'])">
+            <div class="project-box" onclick="openModal('Penelitian Sumur Resapan, Malang', 'Penelitian efektivitas sumur resapan.', ['fotosumur.jpg', 'malang_2.jpg'])">
                 <img src="fotosumur.jpg">
-                <div class="project-content">
-                    <h3>Penelitian Sumur Resapan, Malang</h3>
-                    <p style="font-size:14px; color:#666;">Klik untuk detail & foto...</p>
-                </div>
+                <h3>Penelitian Sumur Resapan, Malang</h3>
             </div>
-
-            <div class="project-box" onclick="openModal('Survey Topografi, Sidoarjo', 'Kegiatan survei topografi untuk perencanaan area gudang di Sidoarjo. Menggunakan teknologi RTK untuk menghasilkan profil ketinggian tanah yang presisi.', ['fotortk.jpg', 'foto_sidoarjo_2.jpg'])">
+            <div class="project-box" onclick="openModal('Survey Topografi, Sidoarjo', 'Kegiatan survei topografi presisi.', ['fotortk.jpg', 'sidoarjo_2.jpg'])">
                 <img src="fotortk.jpg">
-                <div class="project-content">
-                    <h3>Survey Topografi, Sidoarjo</h3>
-                    <p style="font-size:14px; color:#666;">Klik untuk detail & foto...</p>
-                </div>
+                <h3>Survey Topografi, Sidoarjo</h3>
             </div>
         </div>
     </div>
 </section>
-
-<section id="skills">
-    <div class="container">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card"><h3>Hydraulic Modeling</h3><p>HEC-RAS, EPA-SWMM, EPANET</p></div>
-            <div class="skill-card"><h3>GIS & Mapping</h3><p>ArcGIS</p></div>
-            <div class="skill-card"><h3>CAD & Drafting</h3><p>AutoCAD</p></div>
-            <div class="skill-card"><h3>Geotechnical</h3><p>GeoStudio</p></div>
-        </div>
-        <div id="contact" style="margin-top: 60px;">
-            <h2>Contact</h2>
-            <p>Email: callmeferry999@gmail.com | No.Hp: 085856105883</p>
-        </div>
-    </div>
-</section>
-
-<footer>© 2026 Moch Ferry Dwi Fitriansyah</footer>
 
 <div id="projectModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal()">&times;</span>
         <div class="slider-container">
-            <div id="imageHolder"></div>
-            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            <div id="imageHolder" class="image-holder"></div>
+            <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlide(1)">&#10095;</a>
         </div>
-        <h2 id="modalTitle" style="border:none; margin-bottom: 10px;"></h2>
-        <p id="modalDescription" style="font-size:18px; line-height:1.6; color:#444;"></p>
+        <h2 id="modalTitle" style="border:none;"></h2>
+        <p id="modalDescription"></p>
     </div>
 </div>
 
 <script>
 let currentSlideIndex = 0;
-let slideImages = [];
+let totalSlides = 0;
 
 function openModal(title, description, imagesArray) {
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalDescription").innerText = description;
-    slideImages = imagesArray;
+    const holder = document.getElementById("imageHolder");
+    holder.innerHTML = ""; 
+    totalSlides = imagesArray.length;
     currentSlideIndex = 0;
-    renderSlides();
+    imagesArray.forEach(src => {
+        let img = document.createElement("img");
+        img.src = src;
+        img.className = "modal-image";
+        holder.appendChild(img);
+    });
+    updateSlidePosition();
     document.getElementById("projectModal").style.display = "flex";
 }
 
-function renderSlides() {
-    const holder = document.getElementById("imageHolder");
-    holder.innerHTML = "";
-    slideImages.forEach((src, index) => {
-        let img = document.createElement("img");
-        img.src = src;
-        img.className = "modal-image" + (index === 0 ? " active" : "");
-        holder.appendChild(img);
-    });
-    const hasMultiple = slideImages.length > 1;
-    document.querySelector(".prev").style.display = hasMultiple ? "block" : "none";
-    document.querySelector(".next").style.display = hasMultiple ? "block" : "none";
+function moveSlide(n) {
+    currentSlideIndex = (currentSlideIndex + n + totalSlides) % totalSlides;
+    updateSlidePosition();
 }
 
-function changeSlide(n) {
-    const slides = document.getElementsByClassName("modal-image");
-    if (slides.length === 0) return;
-    slides[currentSlideIndex].classList.remove("active");
-    currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
-    slides[currentSlideIndex].classList.add("active");
+function updateSlidePosition() {
+    const holder = document.getElementById("imageHolder");
+    holder.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
 }
 
 function closeModal() {
     document.getElementById("projectModal").style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == document.getElementById("projectModal")) closeModal();
 }
 </script>
 
